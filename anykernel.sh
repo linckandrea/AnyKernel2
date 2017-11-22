@@ -12,6 +12,7 @@ do.cleanuponabort=0
 device.name2=xt1092
 device.name3=xt1095
 device.name4=victara
+} # end properties
 
 # shell variables
 block=/dev/block/platform/msm_sdcc.1/by-name/boot;
