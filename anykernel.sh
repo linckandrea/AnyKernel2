@@ -6,7 +6,7 @@
 properties() {
 kernel.string=Pop Kernel for the Nexbit Robin by @linckandrea
 do.devicecheck=1
-do.modules=1
+do.modules=0
 do.cleanup=1
 do.cleanuponabort=0
 device.name1=ether
