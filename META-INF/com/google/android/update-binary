@@ -109,6 +109,15 @@ if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
 fi;
 
+# disable powerHal if enabled
+if [ -e /system/lib/hw/power.msm8974.so ]; then
+	ui_print "Disabling powerHal...\n";
+	[ -e /system/lib/hw/power.msm8974.so.bak ] || cp /system/lib/hw/power.msm8974.so /system/lib/hw/power.msm8974.so.bak;
+	[ -e /system/lib/hw/power.msm8974.so ] && rm -f /system/lib/hw/power.msm8974.so;
+else
+	ui_print "powerHal already disabled";
+fi;
+
 umount /system;
 umount /data 2>/dev/null;
 ui_print " ";
