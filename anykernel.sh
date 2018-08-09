@@ -21,15 +21,18 @@ ramdisk_compression=auto;
 # import patching functions/variables - see for reference
 . /tmp/anykernel/tools/ak2-core.sh;
 
-
 ## AnyKernel permissions
 # set permissions for included files
 chmod -R 755 $ramdisk
+chown -R root:root $ramdisk/*;
 
 ## AnyKernel install
 dump_boot;
 
 # begin ramdisk changes
+
+# init.pop.rc
+insert_line init.nbq.target.rc "init.pop.rc" after "import /vendor/etc/init/hw/init.nbq.usb.rc" "import init.pop.rc";
 
 # end ramdisk changes
 
