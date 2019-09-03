@@ -44,7 +44,13 @@ replace_string init.target.rc "service mpdecision /system/vendor/bin/mpdecision 
 
 # init.qcom.rc
 backup_file init.qcom.rc;
+# disable mpdecision
 remove_line init.qcom.rc "start mpdecision";
+# remove cpuboost parameters (since we use cpu_input_boost)
+remove_line init.qcom.rc "write /sys/module/cpu_boost/parameters/boost_ms 20";
+remove_line init.qcom.rc "write /sys/module/cpu_boost/parameters/sync_threshold 1728000";
+remove_line init.qcom.rc "write /sys/module/cpu_boost/parameters/input_boost_freq 1497600";
+remove_line init.qcom.rc "write /sys/module/cpu_boost/parameters/input_boost_ms 40";
 
 # end ramdisk changes
 
