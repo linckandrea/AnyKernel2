@@ -12,7 +12,7 @@ do.cleanuponabort=0
 device.name1=xt1092
 device.name2=xt1095
 device.name3=victara
-supported.versions=9
+supported.versions=9 - 10
 supported.patchlevels=
 '; } # end properties
 
