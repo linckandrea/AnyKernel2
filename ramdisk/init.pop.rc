@@ -1,0 +1,41 @@
+on property:sys.boot_completed=1
+    # according to Qcom this legacy value improves first launch latencies
+    # stock value is 512k
+    # from franciscofranco
+    setprop dalvik.vm.heapminfree 2m
+
+    #stop mpdecision
+    stop mpdecision
+    
+    #be sure that all cpus are online
+    # CPU0
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 2457600
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+
+    # CPU1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2457600
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+
+    # CPU2
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 2457600
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+
+    # CPU3
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 2457600
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 268800
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
+
+    # CPU Input Boost (disabled by default)
+    write /sys/kernel/cpu_input_boost/ib_freqs "1190400 1497600"
+    write /sys/kernel/cpu_input_boost/ib_duration_ms 1400
+    write /sys/kernel/cpu_input_boost/enabled 0
+   
+    # Disable UKSM by default
+    write /sys/kernel/mm/ksm/run 0
