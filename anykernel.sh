@@ -62,7 +62,7 @@ replace_string "/system/vendor/etc/init/hw/init.qcom.rc" "268800" "300000" "2688
 # add Pop kernel Script
 ui_print "- Applying Pop kernel init patch in /system/vendor"
 cp /tmp/anykernel/ramdisk/init.pop.rc /system/vendor/etc/init/hw/init.pop.rc;
-insert_line "/system/vendor/etc/init/hw/init.qcom.rc" "init.pop.rc" after "import /vendor/etc/init/hw/init.target.rc" "import /vendor/etc/init/hw/init.pop.rc";;
+insert_line "/system/vendor/etc/init/hw/init.qcom.rc" "init.pop.rc" after "import /vendor/etc/init/hw/init.target.rc" "import /vendor/etc/init/hw/init.pop.rc";
 chmod 644 /system/vendor/etc/init/hw/init.pop.rc;
 
 
